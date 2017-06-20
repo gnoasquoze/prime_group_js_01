@@ -3,19 +3,46 @@
     <meta charset="utf-8">
     <title>Peer Group Project 1</title>
     <meta name="description" content="Webpage">
-
-    <link rel="stylesheet" href="">
-
-    <script src="jquery-3.2.1.min.js"></script>
+    <style>
+      table, th , td {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+      table tr:nth-child(odd) {
+        background-color: #36d9e9;
+      }
+      table tr:nth-child(even) {
+        background-color: #ffffff;
+      }
+      table th {
+        font-size: 1.2em;
+        background-color: black;
+        color: white;
+      }
+    </style>
+    <script src="angular.min.js"></script>
   </head>
 
-  <body>
-    <div id="bonusDiv">
-      <ol id="employeeList">
-
-      </ol>
+  <body ng-app="myApp">
+    <div class="main" ng-controller="MainController">
+      <table>
+        <tr>
+          <th>Employee Name</th>
+          <th>Bonus %</th>
+          <th>Bonus $</th>
+          <th>Salary + Bonus</th>
+        </tr>
+        <tr ng-repeat="bonus in bonuses">
+          <td>{{bonus.name}}</td>
+          <td>{{bonus.bonusPercent}}%</td>
+          <td>{{bonus.bonusDollars | currency}}</td>
+          <td style="text-align:right">{{bonus.bonusPlusSalary | currency}}</td>
+        </tr>
+      </table>
     </div>
-    <script src="group_01.js"></script>
+    <script src="app.js"></script>
+    <script src="group_01_w_angular.js"></script>
   </body>
 
 
